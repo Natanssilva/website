@@ -1,103 +1,210 @@
+import { Button } from "@/components/ui/button";
+import {
+  Dialog,
+  DialogContent,
+  DialogHeader,
+  DialogTitle,
+  DialogTrigger,
+} from "@/components/ui/dialog";
+import { Download, Github, LinkedinIcon, Mail } from "lucide-react";
+import ScrollDown from "@/components/ScrollDown";
 import Image from "next/image";
+import TechStack from "@/components/TechStack";
+import ProjectSlider from "@/components/ProjectSlider";
 
 export default function Home() {
   return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm/6 text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2 tracking-[-.01em]">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-[family-name:var(--font-geist-mono)] font-semibold">
-              src/app/page.js
-            </code>
-            .
-          </li>
-          <li className="tracking-[-.01em]">
-            Save and see your changes instantly.
-          </li>
-        </ol>
-
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+    <div className="w-full overflow-hidden">
+      {/* Seção de Introdução */}
+      <div
+        id="home"
+        className="min-h-screen flex justify-center items-center flex-col p-2 w-full"
+      >
+        <h1 className="text-4xl md:text-3xl sm:text-2xl text-center font-bold">
+          Olá, eu me chamo Natan &#128075;
+        </h1>
+        <div className="flex flex-col flex-wrap justify-center items-center p-4">
+          <div className="p-2">
+            <p className="typing-demo text-center text-4xl sm:text-3xl md:text-4xl">
+              Sou Desenvolvedor Web.
+            </p>
+          </div>
+          <div className="flex flex-wrap justify-center items-center">
+            <p className="text-center whitespace-normal w-80 text-1xl text-gray-700">
+              Graduando em Sistemas para Internet na Universidade do Vale do
+              Itajaí, acredito no poder da tecnologia para transformar ideias
+              simples em ferramentas incríveis. Cada ideia um código e cada
+              código uma inovação!
+            </p>
+          </div>
         </div>
-      </main>
-      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
+        <span className="typed-text text-teal-500"></span>
+        <div className="p-3">
+          <Dialog modal={false}>
+            <DialogTrigger asChild>
+              <Button
+                variant="outline"
+                className="w-60 border-2 border-gray-800 px-4 py-2 rounded-full text-gray-800 cursor-pointer gap-2 transform transition-transform hover:scale-105 hover:underline"
+              >
+                <Download size={18} color="currentColor" /> Ver Currículo
+              </Button>
+            </DialogTrigger>
+
+            <DialogContent>
+              <DialogHeader>
+                <DialogTitle className="text-center p-2">
+                  Selecione o idioma do currículo
+                </DialogTitle>
+                <div className="flex flex-col justify-center items-center gap-4">
+                  <Button
+                    variant="outline"
+                    className="w-60 border-2 border-gray-800 px-4 py-2 rounded-full text-gray-800 cursor-pointer gap-2 transform transition-transform hover:scale-105 hover:underline"
+                  >
+                    <Download size={18} color="currentColor" /> Inglês
+                  </Button>
+                  <Button
+                    variant="outline"
+                    className="w-60 border-2 border-gray-800 px-4 py-2 rounded-full text-gray-800 cursor-pointer gap-2 transform transition-transform hover:scale-105 hover:underline"
+                  >
+                    <Download size={18} color="currentColor" /> Português
+                  </Button>
+                </div>
+              </DialogHeader>
+            </DialogContent>
+          </Dialog>
+        </div>
+        {/* Texto de rolagem */}
+        <ScrollDown />
+      </div>
+
+      {/* Sobre mim*/}
+      <div
+        id="about"
+        className="flex justify-center items-center p-4 min-h-screen"
+      >
+        {/* Sessao informações */}
+        <section className="flex flex-col justify-center items-center space-y-6 gap-3">
+          <h2 className="text-4xl md:text-3xl sm:text-2xl text-center font-bold">
+            Natan Porto Machado da Silva
+          </h2>
+          <h3 className="text-2xl text-center text-gray-700">
+            Desenvolvedor Web Full-Stack
+          </h3>
+
+          <div className="relative w-56 h-56 rounded-full overflow-hidden">
+            <Image
+              src="/perfil-pic.jpg"
+              alt="profile"
+              width={25}
+              height={25}
+              className="w-full h-full object-cover"
+            ></Image>
+          </div>
+          <p className="text-center p-5 whitespace-normal sm:w-full md:w-96 text-xl text-gray-700">
+            Com cerca de 2 anos de experiência em desenvolvimento, utilizo minha
+            criatividade e dedicação para criar soluções inovadoras que
+            simplificam e resolvem desafios do dia a dia.
+          </p>
+          <div className="gap-5">
+            <div className="p-6 rounded-lg shadow-lg border border-gray-200 transition-all duration-300 hover:shadow-xl hover:scale-[1.02]">
+              <h3 className="text-xl font-semibold text-gray-900 mb-4 border-b pb-2 border-gray-200">
+                Atualmente
+              </h3>
+              <ul className="space-y-3 text-gray-600 p-2 ">
+                <li className="flex items-center gap-2 ">
+                  <span className="text-lg">🎓</span>
+                  <span className="hover:text-blue-600 transition-colors">
+                    Finalizando graduação em Sistemas Para Internet na{" "}
+                    <span className="hover:underline cursor-pointer">
+                      <a
+                        href="https://portal.univali.br/Paginas/default.aspx"
+                        target="_blank"
+                      >
+                        UNIVALI.
+                      </a>
+                    </span>
+                  </span>
+                </li>
+                <li className="flex items-center gap-2">
+                  <span className="text-lg">💻</span>
+                  <span className="hover:text-blue-600 transition-colors">
+                    Trabalhando como Desenvolvedor Web Jr.
+                  </span>
+                </li>
+                <li className="flex items-center gap-2">
+                  <span className="text-lg">🚀</span>
+                  <span className="hover:text-blue-600 transition-colors">
+                    Construindo plataforma Fullstack para gerenciamento de
+                    tarefas e organização.
+                  </span>
+                </li>
+              </ul>
+            </div>
+            <p className="text-center p-4 whitespace-normal sm:w-full md:w-3xl text-xl text-gray-700">
+              Minha jornada na área de tecnologia começou ainda criança,
+              mostrando facilidade e gosto por computadores, desde muito novo
+              tive gosto por aprender coisas novas e seguir uma carreira em
+              tecnologia. Meus estudos de fato começaram em 2022 quando iniciei
+              o curso de Ciência da Computação, onde logo em seguida comecei a
+              estudar algoritmos e lógica de programação. Em 2023 me encontrei
+              no meu curso atual, onde consegui alinhar meus conhecimentos e
+              expectativas, no qual tive as minhas primeiras oportunidades no
+              mercado de trabalho!
+            </p>
+            <p className="text-center p-2 whitespace-normal sm:w-full md:w-3xl text-xl text-gray-700">
+              Estou muito feliz que você leu até aqui! Sinta-se à vontade para
+              explorar meu portfólio e, se quiser trocar ideias ou falar sobre
+              projetos, será um prazer conversar com você.
+            </p>
+          </div>
+
+          <div className="flex justify-center gap-4 p-2">
+            <a href="https://github.com/Natanssilva" target="_blank">
+              <Github className="hover:scale-[1.05] cursor-pointer"></Github>
+            </a>
+            <a href="https://www.linkedin.com/in/natanssilva/" target="_blank">
+              <LinkedinIcon className="hover:scale-[1.05] cursor-pointer"></LinkedinIcon>
+            </a>
+            <a href="mailto:natanportoms@outlook.com?subject=Gostaria de conversar para criar projetos!">
+              <Mail className="hover:scale-[1.05] cursor-pointer"></Mail>
+            </a>
+          </div>
+        </section>
+      </div>
+
+      {/* Tecnologia*/}
+      <div
+        id="tech"
+        className="flex justify-center items-center p-4 min-h-screen"
+      >
+        <section className="flex flex-col justify-center items-center space-y-6 gap-3">
+          <h2 className="text-4xl md:text-3xl sm:text-2xl text-center font-bold">
+            Tech Stack
+          </h2>
+          <p className="text-center p-5 whitespace-normal  text-gray-700">
+            Explorando as tecnologias e serviços que impulsionam minhas soluções
+          </p>
+
+          <TechStack />
+        </section>
+      </div>
+
+      {/* Projetos*/}
+      <div
+        id="projects"
+        className="flex justify-center items-center p-4 max-h-screen"
+      >
+        <section className="flex flex-col justify-center items-center space-y-6 gap-3">
+          <h2 className="text-4xl md:text-3xl sm:text-2xl text-center font-bold">
+            Projetos
+          </h2>
+          <p className="text-center p-5 whitespace-normal  text-gray-700">
+            Explore alguns de meus projetos pessoais e tópicos de estudos.
+          </p>
+
+          <ProjectSlider />
+        </section>
+      </div>
     </div>
   );
 }
