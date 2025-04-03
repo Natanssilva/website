@@ -17,26 +17,54 @@ html{
 
 /* Typewritter effect home page */
 
-.typing-demo {
-  width: 100%;
-  animation: typing 5s steps(22), blink .5s step-end infinite alternate;
-  white-space: nowrap;
+.typing-demo-title {
   overflow: hidden;
-  border-right: 3px solid;
-  font-family: monospace;
-  font-size: 2em;
+  white-space: nowrap;
+  border-right: 3px solid black;
+  animation: typing 2s steps(32, end), blink 0.4s step-end infinite;
 }
 
-@keyframes typing {
-  from {
-    width: 0
-  }
+.typing-demo {
+  display: inline-block;
+  overflow: hidden;
+  white-space: nowrap;
+  font-family: monospace;
+  font-size: 2em;
+  border-right: 3px solid black;
+  opacity: 0; /* Esconde o texto até a animação começar */
+  animation: fadeIn 0s linear 2s forwards, typing 2s steps(22, end) 2s forwards, blink 0.4s step-end infinite;
 }
-    
+
+
+/* Oculta os elementos */
+.hidden-element {
+  opacity: 0;
+}
+
+/* Faz os elementos aparecerem com fade-in */
+.fade-in {
+  animation: fadeIn 1.5s ease-in-out forwards;
+  animation-delay: 4s; /* Espera a digitação terminar */
+}
+
+/* Animações */
+@keyframes typing {
+  from { width: 0; }
+  to { width: 100%; }
+}
+
 @keyframes blink {
-  50% {
-    border-color: transparent
-  }
+  50% { border-color: transparent; }
+}
+
+@keyframes showText {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
 }
 
 /* swiper */

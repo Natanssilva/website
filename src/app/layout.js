@@ -1,6 +1,7 @@
 import "./globals.css";
 import Header from "@/components/header";
 import Footer from "@/components/footer";
+import ScrollRevealSetup from "@/components/scrollReveal"; 
 
 export const metadata = {
   title: "Natan Silva",
@@ -12,6 +13,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang="pt-br">
       <body className={`antialiased`}>
+        <ScrollRevealSetup /> 
         <Header />
         {children}
         <Footer />

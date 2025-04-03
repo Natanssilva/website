@@ -51,7 +51,7 @@ const projects = [
 
 export default function ProjectSlider() {
   return (
-    <div className="flex justify-center items-center h-[60vh]  bg-gray-100">
+    <div className="flex justify-center items-center   bg-gray-100">
       <Swiper
         spaceBetween={20}
         pagination={{ clickable: true }}
