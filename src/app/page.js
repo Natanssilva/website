@@ -55,13 +55,15 @@ export default function Home() {
                   Selecione o idioma do currículo
                 </DialogTitle>
                 <div className="flex flex-col justify-center items-center gap-4">
-                  <Button
-                    variant="outline"
-                    className="w-60 border-2 border-gray-800 px-4 py-2 rounded-full text-gray-800 cursor-pointer gap-2 transform transition-transform hover:scale-105 hover:underline"
-                  >
-                    <Download size={18} color="currentColor" /> Inglês
-                  </Button>
-                  <a href="@/public/curriculo.pdf" download>
+                  <a href="/curriculo-en.pdf" target="_blank" download="curriculo-en.pdf">
+                    <Button
+                      variant="outline"
+                      className="w-60 border-2 border-gray-800 px-4 py-2 rounded-full text-gray-800 cursor-pointer gap-2 transform transition-transform hover:scale-105 hover:underline"
+                    >
+                      <Download size={18} color="currentColor" /> Inglês
+                    </Button>
+                  </a>
+                  <a href="/curriculo.pdf" target="_blank" download="curriculo-pt.pdf">
                     <Button
                       variant="outline"
                       className="w-60 border-2 border-gray-800 px-4 py-2 rounded-full text-gray-800 cursor-pointer gap-2 transform transition-transform hover:scale-105 hover:underline"
