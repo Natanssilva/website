@@ -10,7 +10,7 @@ import { Button } from "@/components/ui/button";
 const projects = [
   {
     title: "PrioriTask",
-    description: "Sistema web para gerenciamento de tarefas e organização. No qual permite o usuário organizar o dia a dia utilizando métodos de concentração como pomodoro.",
+    description: "Sistema web para gerenciamento de tarefas e organização.",
     image: "/progress.jpeg",
     repoLink: "#",
     tech: ["Next.JS", "ShadcnUI", "TailwindCSS", "Laravel", "MySQL"],
