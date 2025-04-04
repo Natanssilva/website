@@ -23,8 +23,8 @@ export default function Footer() {
           </a>
         </div>
 
-        <div className="p-8 ">
-          <p className="text-center text-sm text-zinc-400 border-t">
+        <div className="p-8">
+          <p className="text-center text-sm text-zinc-400">
             © {year} Natan Silva. Todos os direitos reservados.
           </p>
         </div>

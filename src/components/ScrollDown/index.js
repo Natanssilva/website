@@ -28,10 +28,12 @@ const ScrollDown = () => {
     <div
       className={`absolute bottom-0 left-1/2 -translate-x-1/2 text-gray-500 text-sm mb-4 animate-bounce text-center ${scrolled ? 'hidden' : ''}`}
     >
-      Role para explorar
-      <div className="flex justify-center text-lg">
-        <ArrowDown />
-      </div>
+      <a href="#about">
+        Role para explorar
+        <div className="flex justify-center text-lg">
+          <ArrowDown />
+        </div>
+      </a>
     </div>
   );
 };

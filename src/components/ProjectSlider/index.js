@@ -1,11 +1,11 @@
 "use client";
-
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
 import { Pagination, Navigation } from "swiper/modules";
-import { Github } from "lucide-react";
+import { Github, ArrowLeft, ArrowRight, MailOpen } from "lucide-react";
+import { Button } from "@/components/ui/button";
 
 const projects = [
   {
@@ -13,6 +13,7 @@ const projects = [
     description: "Aplicação que simula uma pokedex, que utiliza a API PokeApi.",
     image: "/pokedex-img.png",
     repoLink: "https://github.com/Natanssilva/Pokedex",
+    tech: ["Javascript", "HTML", "CSS", "API"],
   },
   {
     title: "Threads",
@@ -20,6 +21,7 @@ const projects = [
       "Aplicação que simula a utilização de threads do processador utilizando NodeJS.",
     image: "/threads.jpeg",
     repoLink: "https://github.com/Natanssilva/Sistemas_operacionais/",
+    tech: ["Node.JS"],
   },
   {
     title: "NewsPaper",
@@ -27,12 +29,21 @@ const projects = [
       "Aplicação Full-Stack no qual possui fluxo de usuários e noticias globais relacionado a Apple.",
     image: "/apple-notices.jpg",
     repoLink: "https://github.com/Natanssilva/newspaperProject",
+    tech: [
+      "Javascript",
+      "HTML",
+      "CSS",
+      "API",
+      "PHP",
+      "MySQL"
+    ],
   },
   {
     title: "Emporium",
     description: "Aplicação landing Page simulando loja de café.",
     image: "/coffee-pic.png",
     repoLink: "https://github.com/Natanssilva/EmporiumCoffee",
+    tech: ["Javascript", "HTML", "CSS", "Bootstrap"],
   },
   {
     title: "Versionamento",
@@ -40,22 +51,21 @@ const projects = [
       "Repositório com estudos e comandos essenciais sobre versionamento de código.",
     image: "/git-github.png",
     repoLink: "https://github.com/Natanssilva/projetogit",
+    tech: ["GIT"],
   },
   {
     title: "CountDown",
     description: "Aplicação que simula um countdown até 1 de Janeiro de 2030.",
     image: "/foguete.jpg",
     repoLink: "https://github.com/Natanssilva/Countdown",
-  }
+    tech: ["Javascript", "HTML", "CSS"],
+  },
 ];
 
 export default function ProjectSlider() {
   return (
-    <div className="flex justify-center items-center   bg-gray-100">
+    <div className="flex justify-center items-center  w-full bg-gray-100 py-10">
       <Swiper
-        spaceBetween={20}
-        pagination={{ clickable: true }}
-        className="w-[82vw] h-[350px] " // Ajuste de largura e altura
         breakpoints={{
           640: { slidesPerView: 1, spaceBetween: 20 },
           768: { slidesPerView: 2, spaceBetween: 30 },
@@ -63,35 +73,63 @@ export default function ProjectSlider() {
         }}
         loop={true}
         modules={[Pagination, Navigation]}
+        navigation={{
+          nextEl: ".custom-next",
+          prevEl: ".custom-prev",
+        }}
+        // pagination={{ clickable: true }}
+        spaceBetween={20}
+        className="w-[90vw] sm:w-[80vw] md:w-[70vw] lg:w-screen xl:w-[75vw] 2xl:w-[65vw] h-[500px] "
       >
-        {projects.map((project) => (
-          <SwiperSlide
-            key={project.id}
-            className="flex justify-center items-center shadow-lg p-8 rounded-lg"
-          >
-            <div className="text-center ">
+        <button className="cursor-pointer custom-prev absolute left-2 top-1/2 translate-y-1/2 z-10  p-2 rounded-full shadow-md">
+          <ArrowLeft size={24} color="black" />
+        </button>
+        <button className="cursor-pointer custom-next absolute right-2 top-1/2 translate-y-1/2 z-10  p-2 rounded-full shadow-md">
+          <ArrowRight size={24} color="black" />
+        </button>
+        {projects.map((project, index) => (
+          <SwiperSlide key={index}>
+            <div className="bg-white rounded-2xl shadow-md overflow-hidden  h-[450px] flex flex-col p-4">
               <img
                 src={project.image}
                 alt={project.title}
-                className="w-full h-40 object-cover rounded-md"
+                className="w-full h-48 object-cover rounded-md mb-4 "
               />
-              <div className="flex justify-evenly flex-wrap items-center gap-8">
-                <h2 className="mt-2 p-2 text-lg font-semibold underline">
-                  {project.title}
-                </h2>
+              <h2 className="text-xl font-semibold mb-2 text-center">
+                {project.title}
+              </h2>
+              <p className="text-gray-600 text-sm text-center mb-4">
+                {project.description}
+              </p>
 
-                <span className="flex justify-center gap-2">
+              <div className="mt-auto flex justify-center flex-col items-center p-4">
+                <Button
+                  variant="outline"
+                  className="cursor-pointer transition-transform duration-300 hover:scale-105"
+                >
                   <a
-                    className="hover:underline"
                     href={project.repoLink}
                     target="_blank"
+                    rel="noopener noreferrer"
+                    className="hover:underline"
                   >
-                    Repositório
+                    Ver Repositório
                   </a>
-                  <Github className="hover:scale-[1.05] cursor-pointer"></Github>
-                </span>
+                  <Github />
+                </Button>
               </div>
-              <p className="text-sm p-3">{project.description}</p>
+              <div className="absolute bottom-1/6 flex justify-center flex-wrap items-center gap-2">
+                <p className="text-sm text-gray-700">Tech:</p>
+                {project.tech.map((tech, index) => (
+                  <span
+                    key={index}
+                    className="shadow-md rounded-md  p-1 text-sm text-gray-500 hover:underline cursor-pointer transition-colors"
+                  >
+                    {tech}
+                  </span>
+                ))}
+                
+              </div>
             </div>
           </SwiperSlide>
         ))}
