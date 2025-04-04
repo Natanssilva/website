@@ -9,6 +9,22 @@ import { Button } from "@/components/ui/button";
 
 const projects = [
   {
+    title: "PrioriTask",
+    description: "Sistema web para gerenciamento de tarefas e organização. No qual permite o usuário organizar o dia a dia utilizando métodos de concentração como pomodoro.",
+    image: "/progress.jpeg",
+    repoLink: "#",
+    tech: ["Next.JS", "ShadcnUI", "TailwindCSS", "Laravel", "MySQL"],
+    ies_build : true
+  },
+  {
+    title: "Security Note",
+    description: "App PWA para anotações seguras com recurso de anotação por voz.",
+    image: "/progress.jpeg",
+    repoLink: "https://github.com/Natanssilva/securityNote",
+    tech: ["Javascript", "DaisyUI", "TailwindCSS", "Speech recognition API", "Web Authentication API"],
+    ies_build : true
+  },
+  {
     title: "Pokedex",
     description: "Aplicação que simula uma pokedex, que utiliza a API PokeApi.",
     image: "/pokedex-img.png",
@@ -99,7 +115,7 @@ export default function ProjectSlider() {
                 {project.title}
               </h2>
               <p className="text-gray-600 text-sm text-center mb-4">
-                {project.description}
+                {project.description} {project.ies_build ? <span className="font-bold">(Projeto em andamento)</span> : ""}
               </p>
 
               <div className="mt-auto flex justify-center flex-col items-center p-4">
@@ -118,12 +134,12 @@ export default function ProjectSlider() {
                   <Github />
                 </Button>
               </div>
-              <div className="absolute bottom-1/6 flex justify-center flex-wrap items-center gap-2">
+              <div className="absolute bottom-1/6 flex justify-center  flex-wrap items-center gap-2">
                 <p className="text-sm text-gray-700">Tech:</p>
                 {project.tech.map((tech, index) => (
                   <span
                     key={index}
-                    className="shadow-md rounded-md  p-1 text-sm text-gray-500 hover:underline cursor-pointer transition-colors"
+                    className="flex flex-col shadow-md rounded-md  p-1 text-sm text-gray-500 hover:underline cursor-pointer transition-colors"
                   >
                     {tech}
                   </span>
