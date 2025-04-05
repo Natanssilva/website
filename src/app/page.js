@@ -26,7 +26,7 @@ export default function Home() {
           </h1>
           <div className="p-2">
             <p className="typing-demo text-center text-3xl sm:text-1xl md:text-2xl">
-            (deploy test do ganso) Sou Desenvolvedor Web.
+            (deploy test do gansoBASS) Sou Desenvolvedor Web.
             </p>
           </div>
           <div className=" hidden-element fade-in flex flex-wrap justify-center items-center">
