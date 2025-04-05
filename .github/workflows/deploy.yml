@@ -19,9 +19,6 @@ jobs:
       - name: 🛠️ Build do projeto
         run: npm run build
 
-      - name: 🗃️ Exportar projeto (Next.js modo static)
-        run: npm run export
-
       - name: 📤 Enviar via FTP
         uses: SamKirkland/FTP-Deploy-Action@v4.3.4
         with:
