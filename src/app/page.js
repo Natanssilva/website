@@ -26,7 +26,7 @@ export default function Home() {
           </h1>
           <div className="p-2">
             <p className="typing-demo text-center text-3xl sm:text-1xl md:text-2xl">
-            (deploy test do gansoBASS) Sou Desenvolvedor Web.
+             Sou Desenvolvedor Web.
             </p>
           </div>
           <div className=" hidden-element fade-in flex flex-wrap justify-center items-center">
@@ -63,7 +63,7 @@ export default function Home() {
                       <Download size={18} color="currentColor" /> Inglês
                     </Button>
                   </a>
-                  <a href="/curriculo.pdf" target="_blank" download="curriculo-pt.pdf">
+                  <a href="/curriculo-pt.pdf" target="_blank" download="curriculo-pt.pdf">
                     <Button
                       variant="outline"
                       className="w-60 border-2 border-gray-800 px-4 py-2 rounded-full text-gray-800 cursor-pointer gap-2 transform transition-transform hover:scale-105 hover:underline"
